@@ -37,9 +37,7 @@
 		<camel.version>2.14.0</camel.version>
 		<log4j.version>2.0.1</log4j.version>
 		<java.version>1.8</java.version>
-		<postgresql.version>9.3-1102-jdbc41</postgresql.version>
 		<servlet-api.version>3.1.0</servlet-api.version>
-		<swagger-springmvc.version>0.8.8</swagger-springmvc.version>
 	</properties>
 
 	<build>
@@ -248,11 +246,6 @@
 		</dependency>
 
 		<!-- database -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
