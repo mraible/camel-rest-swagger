@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="fileLogDir">/var/log/camel-api</Property>
+		<Property name="fileLogPattern">%d %p %c: %m%n</Property>
+		<Property name="fileLogTriggerSize">1 MB</Property>
+		<Property name="fileLogRolloverMax">10</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d [%-15.15t] %-5p %-30.30c{1} %m%n"/>
+		</Console>
+		<!--RollingFile name="File" fileName="${fileLogDir}/camel-api.log"
+						 filePattern="${fileLogDir}/camel-api-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="${fileLogPattern}"/>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${fileLogTriggerSize}"/>
+			</Policies>
+			<DefaultRolloverStrategy max="${fileLogRolloverMax}"/>
+		</RollingFile-->
+	</Appenders>
+
+	<Loggers>
+		<Logger name="org.apache.camel" level="info"/>
+		<Logger name="org.springframework" level="error"/>
+		<Logger name="com.raibledesigns.com.api" level="debug"/>
+
+		<Root level="error">
+			<AppenderRef ref="Console"/>
+			<!--AppenderRef ref="File"/-->
+		</Root>
+
+	</Loggers>
+</Configuration>
