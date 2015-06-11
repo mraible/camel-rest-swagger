@@ -1,6 +1,6 @@
 package com.raibledesigns.camel.config;
 
-import org.apache.camel.component.swagger.spring.SpringRestSwaggerApiDeclarationServlet;
+import org.apache.camel.component.swagger.DefaultCamelSwaggerServlet;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.EnvironmentAware;
@@ -26,7 +26,7 @@ public class SwaggerConfig implements EnvironmentAware {
 	 */
 	@Bean
 	public ServletRegistrationBean swaggerServlet() {
-		ServletRegistrationBean swagger = new ServletRegistrationBean(new SpringRestSwaggerApiDeclarationServlet(), "/api-docs/*");
+		ServletRegistrationBean swagger = new ServletRegistrationBean(new DefaultCamelSwaggerServlet(), "/api-docs/*");
 		Map<String, String> params = new HashMap<>();
 		params.put("base.path", "http://localhost:8080/api");
 		params.put("api.title", propertyResolver.getProperty("title"));
